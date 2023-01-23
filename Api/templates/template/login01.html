@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexa Link</title>
+</head>
+<body>
+
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message:</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    </div>
+    {% endfor %}
+
+    <h3>link your account!</h3>
+    <form method="post" action="/api/login_user/">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="phone">Number</label>
+            <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Your Number" Required>
+        </div>
+        <button type="submit" class="btn btn-primary">Link</button>
+    </form>
+</body>
+</html>

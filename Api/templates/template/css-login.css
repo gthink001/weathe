@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile App Login | By Code Info</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="mobile">
+      <div class="top"></div>
+      <div class="bottom"></div>
+      <img src="logo.png" class="png1" />
+      <h1>Code Info</h1>
+      <h6>Start your online journey</h6>
+    </div>
+    <div class="mobile2">
+      <div class="top"></div>
+      <div class="bottom"></div>
+      <h2>< Back</h2>
+      <br />
+      <img src="logo.png" class="png2" />
+      <h3>Proceed with your Account</h3>
+      <h4>Login</h4>
+      <form>
+        <label> Username</label>
+        <input type="text" name="" placeholder="Username" />
+        <label> Password</label>
+        <input type="password" name="" placeholder="Password" />
+        <label>
+          <input type="submit" name="" value="Login" />
+        </label>
+      </form>
+    </div>
+  </body>
+</html>
+
