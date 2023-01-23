@@ -184,18 +184,15 @@ class ScheduleDevice(APIView):
             data = {"error": "invalid_request", "error_description": serializer.errors}
             return JsonResponse(data, status=status.HTTP_400_BAD_REQUEST)
         else:
-            if serializer.data['auth_key'] == settings.AUTH_KEY:
-                try:
-                    acsame = Scheduling.objects.filter(Devicename=serializer.data['device_id']).filter(Action=serializer.data['action']).filter(Timestamp=serializer.data['fire_date'])
-                    if len(acsame) != 0:
-                        return JsonResponse({"INFO": "Already Added With Same Values"}, status=status.HTTP_400_BAD_REQUEST)
-                    dev_data = Scheduling(Devicename=serializer.data['device_id'], Action=serializer.data['action'], Timestamp=serializer.data['fire_date'])
-                    dev_data.save()
-                    # os.system('at now < a.txt')
-                    return JsonResponse({"INFO": "Scheduled successfully"}, status=status.HTTP_201_CREATED)
-                except Scheduling.DoesNotExist:
-                    return JsonResponse({"INFO": "Exception"}, status=status.HTTP_400_BAD_REQUEST)
-            else:
-                return JsonResponse({"INFO": "Please check the Auth-Key provided."}, status=status.HTTP_400_BAD_REQUEST)
+            try:
+                acsame = Scheduling.objects.filter(Devicename=serializer.data['Devicename']).filter(Timestamp=serializer.data['Timestamp'])
+                if len(acsame) != 0:
+                    return JsonResponse({"INFO": "Already Added With Same Values"}, status=status.HTTP_400_BAD_REQUEST)
+                dev_data = Scheduling(Devicename=serializer.data['Devicename'], temp=serializer.data['temp'], hum=serializer.data['hum'], ppm=serializer.data['ppm'], bat=serializer.data['bat'], sol=serializer.data['sol'], Timestamp=serializer.data['Timestamp'])
+                dev_data.save()
+                # os.system('at now < a.txt')
+                return JsonResponse({"INFO": "Scheduled successfully"}, status=status.HTTP_201_CREATED)
+            except Scheduling.DoesNotExist:
+                return JsonResponse({"INFO": "Exception"}, status=status.HTTP_400_BAD_REQUEST)
 
  # Checking

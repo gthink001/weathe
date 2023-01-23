@@ -8,7 +8,6 @@ class Scheduling(models.Model):
     ppm = models.CharField(max_length=254)
     bat = models.CharField(max_length=254)
     sol = models.CharField(max_length=254)
-    Times = models.CharField(max_length=254, blank=True, null=True)
     Timestamp = models.DateTimeField(blank=True, null=True)
     objects = models.Manager()
 

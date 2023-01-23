@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'h%^rr-#khhs3j0&$7q9%u$2jymbe=0p7v^-g%=mvvnlb$0939e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['www.gthinkinventors.in', 'gthinkinventors.in', '*']  # 'allnew-env.eba-mmj3qtva.ap-south-1.elasticbeanstalk.com', 'secound.ap-south-1.elasticbeanstalk.com', '*']
 
@@ -146,7 +146,7 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'lalith65!G',
-        'HOST': 'database-1.c65vpk1rq8r0.us-east-1.rds.amazonaws.com',
+        'HOST': 'database-2.c65vpk1rq8r0.us-east-1.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
