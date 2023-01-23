@@ -43,12 +43,12 @@ INSTALLED_APPS = [
     'Api',
     'rest_framework',
     # 'oauth2_provider',
-    'corsheaders',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
-    'crispy_forms',
+    # 'corsheaders',
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
+    # 'allauth.socialaccount.providers.google',
+    # 'crispy_forms',
     #  'social_django',
 ]
 MIDDLEWARE = [
@@ -146,7 +146,7 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'lalith65!G',
-        'HOST': 'database-1.cyglwu5d5nhg.ap-south-1.rds.amazonaws.com',
+        'HOST': 'database-1.c65vpk1rq8r0.us-east-1.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
