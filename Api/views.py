@@ -195,4 +195,25 @@ class ScheduleDevice(APIView):
             except Scheduling.DoesNotExist:
                 return JsonResponse({"INFO": "Exception"}, status=status.HTTP_400_BAD_REQUEST)
 
+
+class GetScheduleInfo(APIView):
+    permission_classes = [AllowAny]
+    authentication_classes = (CsrfExemptSessionAuthentication, BasicAuthentication)
+
+    # noinspection PyMethodMayBeStatic
+    def get(self, request, device_id):
+        serializer = DeviceSerializer(data={'device_id': device_id}, context={'request': request})
+
+        if not(serializer.is_valid()):
+            data = {"error": "invalid_request", "error_description": serializer.errors}
+            return JsonResponse(data, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            scheduling_records = Scheduling.objects.filter(Devicename=serializer.data['device_id'])
+            if len(scheduling_records) > 0:
+                ser_resp = DeviceSchedulingSerializer(scheduling_records, many=True)
+                return JsonResponse({"schedule_info": ser_resp.data}, status=status.HTTP_200_OK)
+            else:
+                data = {"INFO": "No scheduling available for this device"}
+                return JsonResponse(data, status=status.HTTP_200_OK)
+
  # Checking
