@@ -216,4 +216,22 @@ class GetScheduleInfo(APIView):
                 data = {"INFO": "No scheduling available for this device"}
                 return JsonResponse(data, status=status.HTTP_200_OK)
 
+
+# class dataget(APIView):
+#     permission_classes = [AllowAny]
+#     authentication_classes = (CsrfExemptSessionAuthentication, BasicAuthentication)
+#
+#     # noinspection PyMethodMayBeStatic
+#     def get(self, request):
+#         scheduling_records = Scheduling.objects.all().values()
+#         return JsonResponse({"schedule_info": scheduling_records.data}, status=status.HTTP_200_OK)
+
+
+def dataget(request):
+    scheduling_records = Scheduling.objects.all().values()
+    ser_resp = DeviceSchedulingSerializer(scheduling_records, many=True)
+    return JsonResponse({"schedule_info": ser_resp.data}, status=status.HTTP_200_OK)
+
+ # Checking
+
  # Checking
